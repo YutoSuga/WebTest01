@@ -44,7 +44,7 @@ public class test01 extends HttpServlet {
 		String color="#"+util.change(red)+util.change(green)+util.change(blue);
 		String message="<font color=\"" +color +"\"><"+tag+">こんな表示になるのだ！</"+tag+"></font>";
 		request.setAttribute("message", message);
-		request.getRequestDispatcher("/WebTest01.jsp").forward(request, response);
+		request.getRequestDispatcher("/WebTest01/tagSearch").forward(request, response);
 
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -52,19 +52,20 @@ public class test01 extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		response.getWriter().write("ABCD");
 		String tag=request.getParameter("tag");
-		String redStr=request.getParameter("red");
-		String greenStr=request.getParameter("green");
-		String blueStr=request.getParameter("blue");
+		//一旦コメントアウトします
+		//String redStr=request.getParameter("red");
+		//String greenStr=request.getParameter("green");
+		//String blueStr=request.getParameter("blue");
 
 		tag = util.HalfString(tag);
 		int red=Integer.parseInt(redStr);
 		int green=Integer.parseInt(greenStr);
 		int blue=Integer.parseInt(blueStr);
 
-		String colorCode = util.CreateColorCode(red,green,blue);
+		//String colorCode = util.CreateColorCode(red,green,blue);
 		String message="<font color=\"" +colorCode +"\"><"+tag+">こんな表示になるのだ！</"+tag+"></font>";
 		request.setAttribute("message", message);
-		request.getRequestDispatcher("/WebTest01.jsp").forward(request, response);
+		request.getRequestDispatcher("/WebTest01/tagSearch").forward(request, response);
 
 	}
 
